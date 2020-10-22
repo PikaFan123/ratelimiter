@@ -19,7 +19,7 @@ class AsyncRateLimiter(RateLimiter):
         if self._alock is None:
             self._init_async_lock()
 
-        with await self._alock:
+        async with self._alock: #change `with await` to `async with` to support py3.9
             # We want to ensure that no more than max_calls were run in the allowed
             # period. For this, we store the last timestamps of each call and run
             # the rate verification upon each __enter__ call.
