@@ -17,7 +17,7 @@ import re
 from setuptools import setup
 
 FILE = 'ratelimiter/__init__.py'
-init_data = open(FILE).read()
+init_data = open(FILE, encoding="utf8").read()
 
 metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", init_data))
 
@@ -40,7 +40,7 @@ setup(
     name='ratelimiter',
     version=VERSION,
     description=DESCRIPTION,
-    long_description=open('README.rst').read(),
+    long_description=open('README.rst', encoding="utf8").read(),
     author=AUTHOR,
     author_email=EMAIL,
     url='https://github.com/RazerM/ratelimiter',
